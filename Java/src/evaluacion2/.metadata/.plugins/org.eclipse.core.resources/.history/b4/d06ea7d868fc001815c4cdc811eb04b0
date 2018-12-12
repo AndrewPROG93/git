@@ -1,0 +1,56 @@
+package segundaevaluacion;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class ARRAYLISTCADENASORDENADODESCENDENTE {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		/*Realiza la clase Java Diccionario que recibe palabras por
+		 *teclado y las almacena en un array de Strings en orden alfabético
+		 *ascendente hasta que llega una cadena vacía que no será tenida en
+		 *cuenta (isEmpty()) o el array esté lleno. Una vez finalizado el
+		 *proceso muestra el contenido del array por pantalla.
+		 */
+
+		// Necesidades previas
+		String words;
+		ArrayList<String> arrayListString= new ArrayList<String>();
+		
+		// Creo el objeto Scanner teclado
+		Scanner teclado = new Scanner (System.in);
+		
+		// Leo un string
+		System.out.println("Introduce un string: ");
+		words = teclado.nextLine();
+		
+	// Añado el string words al diccionario de manera ordenada
+		while (!words.isEmpty()) {
+			
+			// Añado el string arrayList
+			arrayListString.add(words);
+				
+			// Leo otro string
+			System.out.println("Introduce un string: ");
+		    words = teclado.nextLine();
+	}
+	
+	   // Libero la memoria asignada al objeto llamado
+	    teclado.close();
+	    
+	    // Ordeno ArrayList
+	    Collections.sort(arrayListString);
+	    
+	    Comparator<String> comparador = Collections.reverseOrder();
+	    Collections.sort(arrayListString, comparador); 
+	    
+	    // Muestro el contenido del diccionario
+	    for(int position=0; position<arrayListString.size();position++) {
+	    	System.out.println(arrayListString.get(position));
+	}
+  }
+}
